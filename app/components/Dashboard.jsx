@@ -109,7 +109,7 @@ const Dashboard =  () => {
     <form  className='md:w-[40%] mx-auto w-[90%] relative top-30'>
       <div tabIndex={0} className='w-full flex items-center gap-2 rounded-md shadow-2xl border border-white focus:shadow-4xl hover:scale-105 bg-white  px-3 duration-300 ease-in-out'>
         <TbSettingsSearch className={`${state?"animate-spin":""}`}/>
-        <input  type="text" value={state} onChange={(e)=>setState(e.target.value)} placeholder='Enter your Handle' className='py-2 px-1 outline-none  w-full lowercase ' />
+        <input  type="text" value={state} onChange={(e)=>setState(e.target.value)} placeholder='youtube chanel Handle' className='py-2 px-1 outline-none  w-full lowercase ' />
       </div>
     </form>
   </div>
