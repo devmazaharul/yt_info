@@ -1,15 +1,15 @@
 'use client';
-import { Pacifico } from 'next/font/google';
+import { Righteous } from 'next/font/google';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const fonrCon = Pacifico({
+const fonrCon = Righteous({
   weight: '400',
   style: 'normal',
-  subsets: ['vietnamese'],
+  subsets: ['latin'],
 });
 
-const Header = async () => {
+const Header =  () => {
   const pathName = usePathname();
 
   return (
@@ -18,7 +18,7 @@ const Header = async () => {
         <div className={fonrCon.className}>
           <Link
             href={'/'}
-            className={` text-2xl font-semibold text-purple-500 `}
+            className={` text-2xl font-semibold text-gray-700 `}
           >
           Getter
           </Link>
