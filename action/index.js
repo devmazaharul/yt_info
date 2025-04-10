@@ -1,8 +1,8 @@
-const api=process.env.NEXT_PUBLIC_API
+
 
 export const getInfoYtchanel=async(chanelHandle="nenocartoon")=>{
   try {
-    const makeURl=`https://www.googleapis.com/youtube/v3/channels?key=${api}&part=id,snippet,statistics&forHandle=${chanelHandle}`
+    const makeURl=`https://www.googleapis.com/youtube/v3/channels?key=${process.env.NEXT_PUBLIC_API}&part=id,snippet,statistics&forHandle=${chanelHandle}`
     const responce=await fetch(makeURl,{
       next:{
         revalidate:5000//
