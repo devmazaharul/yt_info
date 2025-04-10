@@ -20,7 +20,7 @@ const Header = async () => {
             href={'/'}
             className={` text-2xl font-semibold text-purple-500 `}
           >
-            Finder
+            MYTUBE
           </Link>
         </div>
         <div className="flex items-center gap-4">
