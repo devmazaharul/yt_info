@@ -11,22 +11,26 @@ import Link from 'next/link';
 import { TbSettingsSearch } from 'react-icons/tb';
 import toast from 'react-hot-toast';
 import { TbMoodEmpty } from "react-icons/tb";
+import { TbArrowWaveRightUp } from "react-icons/tb";
+import { TbArrowWaveRightDown } from "react-icons/tb";
 
 const Dashboard =  () => {
   const [data,setData]=useState(null)
   const [state,setState]=useState("")
+  const [loading,setLoading]=useState(false)
 
   useEffect(()=>{
      const getInfo=async()=>{
+      setLoading(true)
      try {
       const responce=await getInfoYtchanel(state==""?"nenocartoon":state);
-      console.log(responce);
       if(responce.status==200){
         setData(responce.items)
       }
      } catch (error) {
-      console.log(error);
       toast.error("Something went wrong")
+     }finally{
+      setLoading(false)
      }
      }
      getInfo()
@@ -89,7 +93,7 @@ const Dashboard =  () => {
             </p>
             <p className="flex items-center gap-2">
               {' '}
-              <IoInformationCircleOutline /> Joined,
+              <IoInformationCircleOutline /> Joined, 
               {new Date(items?.snippet?.publishedAt).toLocaleDateString()}
             </p>
             <p className="flex items-center gap-2">
@@ -108,8 +112,12 @@ const Dashboard =  () => {
 
     <form  className='md:w-[40%] mx-auto w-[90%] relative top-30'>
       <div tabIndex={0} className='w-full flex items-center gap-2 rounded-md shadow-2xl border border-white focus:shadow-4xl hover:scale-105 bg-white  px-3 duration-300 ease-in-out'>
-        <TbSettingsSearch className={`${state?"animate-spin":""}`}/>
+        <TbSettingsSearch className={`${loading?"animate-spin":""}`}/>
         <input  type="text" value={state} onChange={(e)=>setState(e.target.value)} placeholder='youtube chanel Handle' className='py-2 px-1 outline-none  w-full lowercase ' />
+        <div>
+          {items?<TbArrowWaveRightUp className='text-emerald-500'/>:<TbArrowWaveRightDown className='text-red-500'/>}
+        
+        </div>
       </div>
     </form>
   </div>
