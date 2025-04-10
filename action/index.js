@@ -1,8 +1,8 @@
-export const apiKey="AIzaSyDD6XUvNdRCV8LensbgEwxMw2zI5UHDSyA"
+
 
 export const getInfoYtchanel=async(chanelHandle="nenocartoon")=>{
   try {
-    const makeURl=`https://www.googleapis.com/youtube/v3/channels?key=${apiKey}&part=id,snippet,statistics&forHandle=${chanelHandle}`
+    const makeURl=`https://www.googleapis.com/youtube/v3/channels?key=${process.env.api_key}&part=id,snippet,statistics&forHandle=${chanelHandle}`
     const responce=await fetch(makeURl,{
       next:{
         revalidate:5000//
